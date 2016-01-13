@@ -15,6 +15,6 @@
 	] ,
 	"require": 
 	{
-		"fluidphp/phptoolcase": "*"
+		"phptoolcase/phptoolcase": "*" ,
 	}
 }
