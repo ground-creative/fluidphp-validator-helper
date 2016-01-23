@@ -2,7 +2,7 @@
 	"name": "fluidphp/validator-helper" ,	
 	"type": "library" ,
 	"description": "FluidPHP framework validator helper" ,
-	"keywords": [ "php framework" ] ,
+	"keywords": [ "php library" ] ,
 	"homepage": "http://phptoolcase.com" ,
 	"license": "GPL V2" ,
 	"authors": 
@@ -15,6 +15,13 @@
 	] ,
 	"require": 
 	{
-		"phptoolcase/phptoolcase": "*" ,
+		"phptoolcase/phptoolcase": "*"
+	} ,
+	"autoload": 
+	{
+		"psr-4": 
+		{
+			"helpers\\Validator\\": ""
+		}
 	}
 }

@@ -24,7 +24,8 @@ Visit phptoolcase.com for complete guides and examples.
 
 		"require": 
 		{
-			"fluidphp/validtor-helper": "~1.0"
+			"mnsami/composer-custom-directory-installer": "1.0.*",
+			"fluidphp/validator-helper": "~1.0"
 		} ,
 		"extra": 
 		{
