@@ -2,7 +2,7 @@
 
 FluidPhp is a framework based on the PhpToolCase library, visit [phptoolcase.com](http://phptoolcase.com) for complete guides and examples.
 
-This helper to can be used to validated request parameters (GET,DELETE,PUT,POST).
+This helper can be used to validated request parameters (GET,DELETE,PUT,POST).
 
 ## Installation
 
