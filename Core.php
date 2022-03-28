@@ -63,7 +63,10 @@
 		*/
 		public function getValues( $fieldName = null )
 		{
-			if ( $fieldName ){ return ptc_array_get( $this->_values , $fieldName ); }
+			if ( $fieldName )
+			{ 
+				return \phptoolcase\HandyMan::arrayGet( $this->_values , $fieldName ); 
+			}
 			$values = array( );
 			foreach ( $this->_fields as $field_name => $v )
 			{
@@ -168,51 +171,6 @@
 		/**
 		*
 		*/
-		protected $_errrorMessages = null;
-		/**
-		*
-		*/
-		protected $_values = null;
-		/**
-		*
-		*/
-		protected $_errors = array( );
-		/**
-		*
-		*/
-		protected $_fields = array( );
-		/**
-		*
-		*/
-		protected $_errMsgsArray = array( );
-		/**
-		*
-		*/
-		protected function _setError( $fieldName , $rule )
-		{
-			$class = get_called_class( );
-			@$this->_errors[ $fieldName ][ $rule ] = 1; 
-			@$this->_errMsgsArray[ $fieldName ][ $rule ] = $this->_errrorMessages[ $rule ]; 
-		}
-		/**
-		*
-		*/				
-		protected function _sortRules( $rules )
-		{
-			if ( array_key_exists( 'default' , $rules ) )
-			{
-				$rules = array_merge( array( 'default' => $rules[ 'default' ] ) , $rules );
-				if ( !array_key_exists( 'empty' , $rules ) ){ $rules[ 'empty' ] = $rules[ 'default' ]; }
-			}
-			if ( array_key_exists( 'empty' , $rules ) )
-			{
-				$rules = array_merge( array( 'empty' => $rules[ 'empty' ] ) , $rules );
-			}
-			return $rules;
-		}
-		/**
-		*
-		*/
 		public static function make( $inputs , $rules , $messages = null )
 		{
 			$class = get_called_class( );
@@ -285,7 +243,7 @@
 					trigger_error( 'Input type "' . $case[ 0 ] . '" is not supported!' , E_USER_ERROR );
 					return false;
 			}
-			return ( $key ) ? ptc_array_get( $inputs , $key ) : $inputs;
+			return ( $key ) ? \phptoolcase\HandyMan::arrayGet( $inputs , $key ) : $inputs;
 		}
 		/**
 		*
@@ -374,4 +332,49 @@
 			'min'		=>	'value must not be smaller then {0}' ,
 			'range'	=>	'value be between {0} and {1}'
 		);
+		/**
+		*
+		*/
+		protected $_errrorMessages = null;
+		/**
+		*
+		*/
+		protected $_values = null;
+		/**
+		*
+		*/
+		protected $_errors = array( );
+		/**
+		*
+		*/
+		protected $_fields = array( );
+		/**
+		*
+		*/
+		protected $_errMsgsArray = array( );
+		/**
+		*
+		*/
+		protected function _setError( $fieldName , $rule )
+		{
+			$class = get_called_class( );
+			@$this->_errors[ $fieldName ][ $rule ] = 1; 
+			@$this->_errMsgsArray[ $fieldName ][ $rule ] = $this->_errrorMessages[ $rule ]; 
+		}
+		/**
+		*
+		*/				
+		protected function _sortRules( $rules )
+		{
+			if ( array_key_exists( 'default' , $rules ) )
+			{
+				$rules = array_merge( array( 'default' => $rules[ 'default' ] ) , $rules );
+				if ( !array_key_exists( 'empty' , $rules ) ){ $rules[ 'empty' ] = $rules[ 'default' ]; }
+			}
+			if ( array_key_exists( 'empty' , $rules ) )
+			{
+				$rules = array_merge( array( 'empty' => $rules[ 'empty' ] ) , $rules );
+			}
+			return $rules;
+		}
 	}

@@ -6,7 +6,7 @@
 	return array
 	(
 		/* autoload method */
-		'autoload'		=>	'\helpers\Validator\Core::loadConfig' ,
+		'_load'		=>	'\helpers\Validator\Core::loadConfig' ,
 		/* Response error codes */
 		'error_messages'		=>	array
 		(
